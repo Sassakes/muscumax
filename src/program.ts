@@ -17,9 +17,13 @@ ex('legcurl','Leg curl','Ischio-jambiers',2,10,15,2,90,'Bassin stable, mouvement
 ex('legext','Leg extension','Quadriceps',2,10,15,2,90,'Mouvement fluide, amplitude confortable. Pas de verrouillage violent des genoux.','Presse à cuisses légère'),
 ex('hammer','Curl marteau','Biceps · brachial',2,10,15,2,75,'Prise neutre et poignets stables. Note le poids d’un haltère.','Curl corde poulie',1),
 ex('triceps','Extension triceps poulie','Triceps',2,10,15,2,75,'Même mouvement et même repère de charge que sur la séance A.','Extension triceps corde',1)]},
-{id:'C',name:'Full body léger',subtitle:'Seulement si tu as récupéré',time:'30–40',optional:true,focus:'Du mouvement et un peu de volume en plus. Aucun record à aller chercher.',exercises:[
+{id:'C',name:'Full body & bras',subtitle:'Samedi · pecs, épaules & curls',time:'55–70',optional:true,focus:'Rappel pecs et épaules, un peu de jambes, puis les curls barre droite et barre W pour finir. Garde 3–4 reps de marge.',exercises:[
 ex('lightbench','Développé haltères','Pectoraux',2,8,12,4,120,'Prise confortable, exécution propre. Note le poids par haltère. Garde 3–4 reps de marge.','Chest press légère',1),
+ex('pecfly','Écartés à la poulie','Pectoraux',2,12,15,4,75,'Charge modérée, coudes légèrement fléchis. Rapproche les bras sans étirement forcé et garde les épaules stables.','Pec deck',1),
 ex('row','Rowing poulie','Dos',2,10,15,4,90,'Léger et propre. La séance doit te laisser de l’énergie.','Rowing poitrine appuyée'),
+ex('shoulderpress','Développé épaules haltères','Épaules',2,8,12,4,120,'Assis, dos stable, prise confortable. Note le poids par haltère. Ne force pas une amplitude qui tire dans les épaules.','Shoulder press machine',1),
 ex('press','Presse à cuisses','Quadriceps · fessiers',2,10,15,4,120,'Pieds bien posés, bassin stable. Reste loin de l’échec. Note la charge ajoutée sur la machine.','Goblet squat'),
 ex('legcurl','Leg curl','Ischio-jambiers',2,12,15,4,90,'Pas de séries forcées. Si les jambes sont lourdes du MMA, saute cette séance.','Leg curl allongé'),
-ex('lateral','Élévations latérales','Épaules',2,12,20,4,75,'Petite charge, sans élan. Garde 3–4 reps en réserve.','Machine élévations latérales',1)]}];
+ex('lateral','Élévations latérales','Épaules',2,12,20,4,75,'Petite charge, sans élan. Garde 3–4 reps en réserve.','Machine élévations latérales',1),
+ex('straightcurl','Curl barre droite','Biceps',2,8,12,4,75,'Coudes stables, sans balancer le buste. Note la charge totale, barre comprise. Prise confortable pour les poignets.','Curl poulie barre droite',1),
+ex('ezcurl','Curl barre W / EZ','Biceps · brachial',2,10,15,4,75,'Termine léger, descente contrôlée et poignets stables. Note la charge totale, barre comprise. Garde de la marge pour le MMA.','Curl pupitre barre EZ',1)]}];

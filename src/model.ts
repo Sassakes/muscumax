@@ -25,8 +25,10 @@ export function parseData(input:unknown):Data{
  if(!Number.isSafeInteger(s.startedAt)||Number(s.startedAt)<=0||!['normal','light'].includes(String(s.mode)))throw Error('Séance invalide');
  if(finished&&(!Number.isSafeInteger(s.finishedAt)||Number(s.finishedAt)<Number(s.startedAt)))throw Error('Date invalide');
  if(!finished&&s.finishedAt!==undefined)throw Error('Brouillon invalide');
- if(!Array.isArray(s.entries)||s.entries.length!==plan.exercises.length)throw Error('Exercices invalides');
- const entries=s.entries.map((raw,i)=>{const e=object(raw),ex=plan.exercises[i],meta=object(e.exercise);if(meta.id!==ex.id||!Array.isArray(e.sets)||!e.sets.length||e.sets.length>10||!Number.isInteger(e.rir)||Number(e.rir)<0||Number(e.rir)>5)throw Error('Exercice invalide');
+ if(!Array.isArray(s.entries)||!s.entries.length||s.entries.length>20)throw Error('Exercices invalides');
+ const seen=new Set<string>();
+ const entries=s.entries.map(raw=>{const e=object(raw),meta=object(e.exercise),ex=plan.exercises.find(x=>x.id===meta.id);if(!ex||seen.has(ex.id)||!Array.isArray(e.sets)||!e.sets.length||e.sets.length>10||!Number.isInteger(e.rir)||Number(e.rir)<0||Number(e.rir)>5)throw Error('Exercice invalide');
+ seen.add(ex.id);
  const sets=e.sets.map(raw=>{const s=object(raw);const row={weight:text(s.weight,10),reps:text(s.reps,3),done:s.done===true};if(typeof s.done!=='boolean'||!/^\d*[.,]?\d*$/.test(row.weight)||!/^\d*$/.test(row.reps)||(row.done&&!valid(row)))throw Error('Série invalide');return row;});
  return{exercise:{...ex},sets,rir:Number(e.rir),variation:e.variation===undefined?'':text(e.variation,120)};});
  const result:Session={id:text(s.id,100),planId:plan.id,name:plan.name,startedAt:Number(s.startedAt),mode:s.mode as Session['mode'],entries,note:text(s.note,1000)};

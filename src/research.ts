@@ -1,0 +1,13 @@
+export const researchSources=[
+ {label:'ACSM · Recommandations 2026',type:'Revue de revues · adultes en bonne santé',url:'https://pubmed.ncbi.nlm.nih.gov/41843416/',finding:'La musculation progressive améliore la force et la masse musculaire. L’échec systématique n’est pas nécessaire.',application:'Bench au début, 2–3 séries sur les mouvements principaux, progression graduelle et marge avant l’échec.'},
+ {label:'Strength training & sports de combat · 2023',type:'Revue systématique · 20 études, 504 athlètes',url:'https://pubmed.ncbi.nlm.nih.gov/36834211/',finding:'Les programmes de force étudiés améliorent plusieurs qualités physiques dans les sports de combat olympiques.',application:'Garder du travail de force en complément du MMA. Cette revue ne teste pas directement ton split ni tous les profils de pratiquants de MMA.'},
+ {label:'Entraînement combiné · 2022',type:'Méta-analyse · 43 études',url:'https://pubmed.ncbi.nlm.nih.gov/34757594/',finding:'L’endurance et la force peuvent coexister ; les gains de force explosive peuvent être atténués, surtout dans une même séance.',application:'Si ton planning le permet, sépare la musculation des entraînements intenses. Les données portent sur l’endurance, pas directement sur le sparring.'},
+ {label:'Charge d’entraînement en MMA · 2021',type:'Étude observationnelle · 14 athlètes, 8 semaines',url:'https://pmc.ncbi.nlm.nih.gov/articles/PMC8109772/',finding:'Cette étude décrit les charges et le manque de planification observé dans un petit groupe de combattants.',application:'Ajuster la séance à ta récupération et à la charge de MMA, au lieu d’ajouter automatiquement du volume.'},
+];
+export const trainingRules=[
+ {title:'A + B, la base.',text:'Deux séances principales, placées autour du MMA. Vise environ 48 h entre elles si possible ; évite de placer une grosse séance jambes juste avant ton sparring le plus dur.'},
+ {title:'La charge se mérite.',text:'Choisis une charge qui te laisse les reps de marge indiquées. Quand toutes tes séries atteignent le haut de la fourchette avec cette marge, ajoute le plus petit palier disponible.'},
+ {title:'L’échauffement vient avant.',text:'5–8 min faciles, quelques mouvements articulaires confortables et 3–4 séries progressives sur ton premier gros exercice. Les séries de chauffe ne comptent pas dans le tableau.'},
+ {title:'Le samedi reste facultatif.',text:'Pecs et épaules en rappel, jambes légères, curls barre droite puis barre W pour finir. Ne le rattrape pas si tu manques de récupération.'},
+ {title:'Semaine lourde = format réduit.',text:'Active Fatigue MMA avant de commencer : une série en moins par exercice, sans descendre sous une, et 3–4 reps en réserve. Une douleur inhabituelle : arrête le mouvement.'},
+];

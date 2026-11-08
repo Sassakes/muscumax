@@ -21,13 +21,13 @@ npm ci
 npm run dev
 ```
 
-Vérification : `npm run build`.
+Vérification : `npm test` puis `npm run build`.
 
 ## Fonctions
 
 - Séance A : haut du corps, bench en priorité, finition bras.
 - Séance B : jambes et rappel biceps/triceps.
-- Séance C : full body léger facultatif.
+- Séance C : rappel pecs/épaules, jambes légères et curls barre droite puis W/EZ, facultatif.
 - Saisie charge/reps par série, validation explicite et marge en réserve.
 - Reprise de séance, repos avec minuteur, séances partielles, notes et historique.
 - Courbe des charges, mode fatigue MMA, export/import JSON validé.
@@ -41,3 +41,14 @@ Programme de départ à ajuster à la récupération et aux entraînements de MM
 ## Structure
 
 `src/program.ts` : séances et exercices. `src/model.ts` : données et validation des sauvegardes. `src/App.tsx` : interface. `scripts/create-service-worker.mjs` : génération du cache hors connexion.
+
+## Programme et sources
+
+Le split respecte les préférences de Maxime : haut du corps avec priorité au bench, jambes avec rappel bras, puis un samedi facultatif. Le dosage est une adaptation pratique à une forte charge de MMA, et non un protocole individuellement validé. Le samedi conserve tous les mouvements demandés, avec un seul set de rappel sur la presse et le leg curl et environ 3 reps en réserve.
+
+- [ACSM 2026 : revue des prescriptions de musculation](https://pubmed.ncbi.nlm.nih.gov/41843416/)
+- [Force dans les sports de combat olympiques : revue systématique](https://pubmed.ncbi.nlm.nih.gov/36834211/)
+- [Entraînement combiné force/endurance : méta-analyse](https://pubmed.ncbi.nlm.nih.gov/34757594/)
+- [Charge d’entraînement en MMA : étude observationnelle](https://pmc.ncbi.nlm.nih.gov/articles/PMC8109772/)
+
+Les limites et applications de chaque source sont accessibles dans « Comprendre mon programme ». Les anciennes séances et les brouillons gardent leurs prescriptions d’origine lors des évolutions du programme.

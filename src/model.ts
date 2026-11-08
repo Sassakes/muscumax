@@ -30,8 +30,11 @@ export function parseData(input:unknown):Data{
  const entries=s.entries.map(raw=>{const e=object(raw),meta=object(e.exercise),ex=plan.exercises.find(x=>x.id===meta.id);if(!ex||seen.has(ex.id)||!Array.isArray(e.sets)||!e.sets.length||e.sets.length>10||!Number.isInteger(e.rir)||Number(e.rir)<0||Number(e.rir)>5)throw Error('Exercice invalide');
  seen.add(ex.id);
  const sets=e.sets.map(raw=>{const s=object(raw);const row={weight:text(s.weight,10),reps:text(s.reps,3),done:s.done===true};if(typeof s.done!=='boolean'||!/^\d*[.,]?\d*$/.test(row.weight)||!/^\d*$/.test(row.reps)||(row.done&&!valid(row)))throw Error('Série invalide');return row;});
- return{exercise:{...ex},sets,rir:Number(e.rir),variation:e.variation===undefined?'':text(e.variation,120)};});
- const result:Session={id:text(s.id,100),planId:plan.id,name:plan.name,startedAt:Number(s.startedAt),mode:s.mode as Session['mode'],entries,note:text(s.note,1000)};
+ const bounded=(value:unknown,fallback:number,min:number,max:number)=>value===undefined?fallback:typeof value==='number'&&Number.isInteger(value)&&value>=min&&value<=max?value:(()=>{throw Error('Prescription invalide');})();
+ const snapshot={...ex,name:meta.name===undefined?ex.name:text(meta.name,120),sets:bounded(meta.sets,ex.sets,1,20),min:bounded(meta.min,ex.min,1,100),max:bounded(meta.max,ex.max,1,100),rir:bounded(meta.rir,ex.rir,0,5),rest:bounded(meta.rest,ex.rest,0,600)};
+ if(snapshot.max<snapshot.min)throw Error('Fourchette invalide');
+ return{exercise:snapshot,sets,rir:Number(e.rir),variation:e.variation===undefined?'':text(e.variation,120)};});
+ const result:Session={id:text(s.id,100),planId:plan.id,name:s.name===undefined?plan.name:text(s.name,120),startedAt:Number(s.startedAt),mode:s.mode as Session['mode'],entries,note:text(s.note,1000)};
  if(!result.id)throw Error('Identifiant vide');if(finished){result.finishedAt=Number(s.finishedAt);if(!count(result))throw Error('Séance vide');}return result;
  };
  const data=object(input);if(data.version!==1||!Array.isArray(data.history)||data.history.length>10000)throw Error('Sauvegarde incompatible');
